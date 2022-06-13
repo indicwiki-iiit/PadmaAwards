@@ -1,0 +1,39 @@
+{%- macro info(Recipients_Telugu,image,Birth_Date,Place_of_Birth,Death_Date,Place_of_Birth,Nationality,Institutions,Alma_mater,Occupation,Spouse,Other_Awards_including_Padma) -%}
+{{'{{Infobox person'}}
+| name               = {{Recipients_Telugu}}
+{%- if image!= 'NaN' %}
+| image              = {{image}}
+{%- endif %}
+{%- if Birth_Date!= 'NaN' %}
+| birth_date         = {{'{{Birth date and age|'}}{{Birth_Date.split('-')[0]}}{{'|'}}{{Birth_Date.split('-')[1]}}{{'|'}}{{Birth_Date.split('-')[2]}}{{'}}'}}
+{%- endif %}
+{%- if Place_of_Birth!= 'NaN' %}
+| birth_place        = {{Place_of_Birth}}
+{%- endif %}
+{%- if Death_Date!= 'NaN' %}
+| death_date         = {{'{{Death date and age|'}}{{Death_Date.split('-')[0]}}{{'|'}}{{Death_Date.split('-')[1]}}{{'|'}}{{Death_Date.split('-')[2]}}{{'|'}}{{Birth_Date.split('-')[0]}}{{'|'}}{{Birth_Date.split('-')[1]}}{{'|'}}{{Birth_Date.split('-')[2]}}{{'}}'}}
+{%- endif %}
+{%- if Place_of_Birth!= 'NaN' %}
+| death_place        = {{Place_of_Death}}
+{%- endif %}
+{%- if Nationality!= 'NaN' %}
+| nationality        = {{Nationality}}
+{%- endif %}
+{%- if Institutions != 'NaN' %}
+| education          = {{Institutions}}
+{%- endif %}
+{%- if Alma_mater!= 'NaN' %}
+| alma_mater         = {{Alma_mater}}
+{%- endif %}
+{%- if Occupation!= 'NaN' %}
+| occupation         = {{Occupation}}
+{%- endif %}
+{%- if Spouse!= 'NaN' %}
+| spouse             = {{Spouse}}
+{%- endif %}
+{%- if Other_Awards_including_Padma!= 'NaN' %}
+| awards             = {{Other_Awards_including_Padma}}
+{%- endif %}
+{%- endmacro -%}
+
+{{- info(Recipients_Telugu,image,Birth_Date,Place_of_Birth,Death_Date,Place_of_Birth,Nationality,Institutions,Alma_mater,Occupation,Spouse,Other_Awards_including_Padma) }}

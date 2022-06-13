@@ -1,0 +1,8 @@
+{%- macro body_gen(body,Summary_Telugu) -%}
+{%- if Summary_Telugu != 'NaN' %}
+{{'\n'}}{{Summary_Telugu}}
+{%- for k,v in body.items() %}
+{%- if v != 'NaN' %}{{'\n\n'}}=={{k}}=={{'\n'}}{{v}}{%- endif %}{% endfor %}
+{%- endif %}
+{%- endmacro -%}
+{{- body_gen(body,Summary_Telugu) }}

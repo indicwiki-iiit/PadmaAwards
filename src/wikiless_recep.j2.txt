@@ -1,0 +1,8 @@
+{%- macro total(Padma_Shri_Year, Padma_Shri_State, Padma_Shri_Field, Padma_Shri_Awarded_By -%}
+	{%- if Padma_Shri_State != 'NaN' %}
+	{%- set state_line=["వీరు "+"Padma_Shri_State" + " కి చెందిన వారు."] -%}
+	{%- endif %}
+	{%- if Padma_Shri_Year != 'NaN' and Padma_Shri_Field !='NaN' and Padma_Shri_Awarded_By!='NaN' %}
+	{%- set award_line=["వీరు"+ "Padma_Shri_Year"+"లో"+"Padma_Shri_Field"+" విభాగం యందు "+","+"Padma_Shri_Awarded_By"+"గారిచే"+  ___ పురస్కారాన్ని అందుకున్నారు. ] -%}
+	{%-endif %}
+{%- endmacro -%}

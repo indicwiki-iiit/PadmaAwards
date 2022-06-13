@@ -1,0 +1,8 @@
+==బాహ్య లింకులు==
+{%- macro ref_gen(ref_dict,ref) -%}
+{%- if ref != 'NaN' %}
+{%- for k,v in ref_dict.items() %}
+{%- if v != 'NaN' %}{{'\n'}}[{{k}} {{v}}]{%- endif %}{% endfor %}
+{%- endif %}
+{%- endmacro -%}
+{{- ref_gen(ref_dict,ref) }}
