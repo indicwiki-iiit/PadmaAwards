@@ -1,0 +1,75 @@
+
+{%- macro body_gen(body,Summary_Telugu,colName_tel) -%}
+{%- if Summary_Telugu != 'NaN' %}
+{{'\n'}}{{Summary_Telugu}}{%- if Padma_Shri_Year != 'NaN' %}{{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Shri|title="}}{{Recipients}}{{" - padma shri |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{%- if Padma_Bhushan_Year != 'NaN' %}{{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Bhushan|title="}}{{Recipients}}{{" - padma Bhushan |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{%- if Padma_Vibhushan_Year != 'NaN' %} {{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Vibhushan|title="}}{{Recipients}}{{" - padma Vibhushan |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{% set flag_wiki_link = [] %}
+{%- for k,v in body.items() %}{%- if v != 'NaN' %}{{'\n\n'}}=={%- for k2,v2 in colName_tel.items() %}{%- if k2+'_Telugu' == k %}{{v2}}{%- endif %}{% endfor %}=={{'\n\n'}}{{v}}{%- if len(flag_wiki_link) == 0 %}{% do flag_wiki_link.append(1) %}{{"<ref>{{Cite web|url="}}{{WikiLink}}{{"|title="}}{{Recipients}}{{" - wikipedia |website=wikipedia.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}{%- endif %}{% endfor %}
+{%- else %}
+{{"'''"}}{{Recipients_Telugu}}{{"'''"}} {%- if Birth_Date != 'NaN' %}{{'('}}{{Birth_Date}}{{')'}}{%- endif %} {%- if Occupation_Tel != 'NaN' %} ఒక {{Occupation_Tel}}{%- endif %}, {%- if Padma_Shri_Year != 'NaN' and Padma_Bhushan_Year != 'NaN' and Padma_Vibhushan_Year != 'NaN' %} {{Padma_Shri_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Shri_Year}} లో భారత ప్రభుత్వం {{Padma_Shri_Awarded_By_Tel}} ద్వారా నాల్గవ అత్యున్నత భారతీయ పౌర పురస్కారం [[పద్మశ్రీ పురస్కారం |పద్మశ్రీ]]ని, {{Padma_Bhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Bhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Bhushan_Awarded_By_Tel}} ద్వారా మూడవ అత్యున్నత పౌర పురస్కారమైన [[పద్మభూషణ్ పురస్కారం |పద్మభూషణ్ను]], {{Padma_Vibhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Vibhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Vibhushan_Awarded_By_Tel}} ద్వారా రెండవ అత్యున్నత పౌర పురస్కారం [[పద్మ విభూషణ్ పురస్కారం |పద్మ విభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year != 'NaN' and Padma_Bhushan_Year != 'NaN' and Padma_Vibhushan_Year == 'NaN' %} {{Padma_Shri_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Shri_Year}} లో భారత ప్రభుత్వం {{Padma_Shri_Awarded_By_Tel}} ద్వారా నాల్గవ అత్యున్నత భారతీయ పౌర పురస్కారం [[పద్మశ్రీ పురస్కారం |పద్మశ్రీ పురస్కారం]]ని, {{Padma_Bhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Bhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Bhushan_Awarded_By_Tel}} ద్వారా మూడవ అత్యున్నత పౌర పురస్కారమైన [[పద్మభూషణ్ పురస్కారం |పద్మభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year != 'NaN' and Padma_Bhushan_Year == 'NaN' and Padma_Vibhushan_Year != 'NaN' %} {{Padma_Shri_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Shri_Year}} లో భారత ప్రభుత్వం {{Padma_Shri_Awarded_By_Tel}} ద్వారా నాల్గవ అత్యున్నత భారతీయ పౌర పురస్కారం [[పద్మశ్రీ పురస్కారం |పద్మశ్రీ పురస్కారం]]ని, {{Padma_Vibhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Vibhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Vibhushan_Awarded_By_Tel}} ద్వారా రెండవ అత్యున్నత పౌర పురస్కారం [[పద్మ విభూషణ్ పురస్కారం |పద్మ విభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year == 'NaN' and Padma_Bhushan_Year != 'NaN' and Padma_Vibhushan_Year != 'NaN' %} {{Padma_Bhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Bhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Bhushan_Awarded_By_Tel}} ద్వారా మూడవ అత్యున్నత పౌర పురస్కారమైన [[పద్మభూషణ్ పురస్కారం |పద్మభూషణ్ను]], {{Padma_Vibhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Vibhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Vibhushan_Awarded_By_Tel}} ద్వారా రెండవ అత్యున్నత పౌర పురస్కారం [[పద్మ విభూషణ్ పురస్కారం |పద్మ విభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year != 'NaN' and Padma_Bhushan_Year == 'NaN' and Padma_Vibhushan_Year == 'NaN' %} {{Padma_Shri_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Shri_Year}} లో భారత ప్రభుత్వం {{Padma_Shri_Awarded_By_Tel}} ద్వారా నాల్గవ అత్యున్నత భారతీయ పౌర పురస్కారం [[పద్మశ్రీ పురస్కారం |పద్మశ్రీ పురస్కారం]]ని ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year == 'NaN' and Padma_Bhushan_Year != 'NaN' and Padma_Vibhushan_Year == 'NaN' %} {{Padma_Bhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Bhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Bhushan_Awarded_By_Tel}} ద్వారా మూడవ అత్యున్నత పౌర పురస్కారమైన [[పద్మభూషణ్ పురస్కారం |పద్మభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}{%- if Padma_Shri_Year == 'NaN' and Padma_Bhushan_Year == 'NaN' and Padma_Vibhushan_Year != 'NaN' %} {{Padma_Vibhushan_Field_Tel}} రంగానికి వీరు చేసిన సేవలకు గాను {{Padma_Vibhushan_Year}}లో భారత ప్రభుత్వం {{Padma_Vibhushan_Awarded_By_Tel}} ద్వారా రెండవ అత్యున్నత పౌర పురస్కారం [[పద్మ విభూషణ్ పురస్కారం |పద్మ విభూషణ్ను]] ప్రదానం చేసింది. {%- endif %}
+{%- if Padma_Shri_Year != 'NaN' %}{{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Shri|title="}}{{Recipients}}{{" - padma shri |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{%- if Padma_Bhushan_Year != 'NaN' %}{{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Bhushan|title="}}{{Recipients}}{{" - padma Bhushan |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{%- if Padma_Vibhushan_Year != 'NaN' %} {{"<ref>{{Cite web|url=http://www.dashboard-padmaawards.gov.in/?Award=Padma%20Vibhushan|title="}}{{Recipients}}{{" - padma Vibhushan |website=dashboard-padmaawards.org |language=en |access-date=2022-05-05}}</ref>"}}{%- endif %}
+{%- endif %}
+{%- endmacro -%}
+
+{%- macro ref_gen() -%}
+{{'\n\n'}}==మూలాలు=={{'\n'}}<references />{{"\n"}}
+{%- endmacro -%}
+
+{%- macro infobox_macro(Recipients_Telugu,image,Birth_Date,Place_of_Birth,Death_Date,Place_of_Death,Nationality,Institutions,Alma_mater,Spouse,Other_Awards_including_Padma) -%}
+{%- if image != 'NaN' or Birth_Date != 'NaN' or Place_of_Birth != 'NaN' or Death_Date != 'NaN' or Place_of_Death != 'NaN' or Nationality != 'NaN' or Institutions != 'NaN' or Alma_mater != 'NaN' or Spouse != 'NaN'or Other_Awards_including_Padma != 'NaN' %}
+{{'{{Infobox person'}}
+| name               = {{Recipients_Telugu}}
+{%- if image != 'NaN' %}
+| image              = {{image}}
+{%- endif %}
+{%- if Birth_Date != 'NaN' %}
+{%- if Death_Date == 'NaN' %}
+| birth_date         = {{'{{Birth date and age|'}}{{Birth_Date.split('-')[0]}}{{'|'}}{{Birth_Date.split('-')[1]}}{{'|'}}{{Birth_Date.split('-')[2]}}{{'}}'}}
+{%- else %}
+| birth_date         = {{'{{Birth date|'}}{{Birth_Date.split('-')[0]}}{{'|'}}{{Birth_Date.split('-')[1]}}{{'|'}}{{Birth_Date.split('-')[2]}}{{'}}'}}
+{%- endif %}
+{%- endif %}
+{%- if Place_of_Birth_Tel != 'NaN' %}
+| birth_place        = {{Place_of_Birth_Tel}}
+{%- endif %}
+{%- if Death_Date != 'NaN' %}
+| death_date         = {{'{{Death date and age|'}}{{Death_Date.split('-')[0]}}{{'|'}}{{Death_Date.split('-')[1]}}{{'|'}}{{Death_Date.split('-')[2]}}{{'|'}}{{Birth_Date.split('-')[0]}}{{'|'}}{{Birth_Date.split('-')[1]}}{{'|'}}{{Birth_Date.split('-')[2]}}{{'}}'}}
+{%- endif %}
+{%- if Place_of_Death_Tel != 'NaN' %}
+| death_place        = {{Place_of_Death_Tel}}
+{%- endif %}
+{%- if Nationality_Tel != 'NaN' %}
+| nationality        = {{Nationality_Tel}}
+{%- endif %}
+{%- if Institutions_Tel != 'NaN' %}
+| education          = {{Institutions_Tel}}
+{%- endif %}
+{%- if Alma_mater_Tel != 'NaN' %}
+| alma_mater         = {{Alma_mater_Tel}}
+{%- endif %}
+{%- if Occupation_Tel != 'NaN' %}
+| occupation         = {{Occupation_Tel}}
+{%- endif %}
+{%- if Spouse_Tel != 'NaN' %}
+| spouse             = {{Spouse_Tel}}
+{%- endif %}
+{%- if Other_Awards_including_Padma_Tel != 'NaN' %}
+| awards             = {{Other_Awards_including_Padma_Tel}}
+{%- else %}
+| awards             = {%- if Padma_Shri_Year != 'NaN' %} [[పద్మశ్రీ పురస్కారం |పద్మశ్రీ]] ({{Padma_Shri_Year}}){{'\n'}}{%- endif %}{%- if Padma_Bhushan_Year != 'NaN' %} [[పద్మభూషణ్ పురస్కారం | పద్మభూషణ్ ]]({{Padma_Bhushan_Year}}){{'\n'}}{%- endif %}{%- if Padma_Vibhushan_Year != 'NaN' %} [[పద్మ విభూషణ్ పురస్కారం | పద్మవిభూషణ్ ]] ({{Padma_Vibhushan_Year}}){%- endif %}
+{%- endif %}
+{{'}}'}}
+{%- endif %}
+{%- endmacro -%}
+
+{{'{{ Authority control }}'}}
+{{- infobox_macro(Recipients_Telugu,image,Birth_Date,Place_of_Birth,Death_Date,Place_of_Death,Nationality,Institutions,Alma_mater,Spouse,Other_Awards_including_Padma) }}
+{{- body_gen(body,Summary_Telugu,colName_tel) }}
+{{- ref_gen() }}
+[[వర్గం:తెవికీ పద్మ పురస్కారాలు]]
+{%- if Padma_Shri_Year != 'NaN' %}[[వర్గం:తెవికీ పద్మశ్రీ పురస్కారం]]{%- endif %}
+{%- if Padma_Bhushan_Year != 'NaN' %}[[వర్గం:తెవికీ పద్మభూషణ్ పురస్కారం]]{%- endif %}
+{%- if Padma_Vibhushan_Year != 'NaN' %}[[వర్గం:తెవికీ పద్మవిభూషణ్ పురస్కారం]]{%- endif %}
